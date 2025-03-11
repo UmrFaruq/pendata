@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tugas 2 &#8212; Penambangan Data</title>
+    <title>Penjelasan Outlier Deteksi &#8212; Penambangan Data</title>
   
   
   
@@ -57,9 +57,12 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Tugas2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Deteksi Outlier dengan K-Nearest Neighbors (KNN) dalam Data Understanding" href="KNN.html" />
     <link rel="prev" title="Tugas 1 Pendata" href="Tugas1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -180,7 +183,11 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Tugas1.html">Tugas 1 Pendata</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas 2</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Penjelasan Outlier Deteksi</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="KNN.html">Deteksi Outlier dengan K-Nearest Neighbors (KNN) dalam Data Understanding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LOF.html">Deteksi Outlier dengan metode Local Outlier Factor (LOF) dalam Data Understanding</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -366,7 +373,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tugas 2</h1>
+    <h1>Penjelasan Outlier Deteksi</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -376,17 +383,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-outlier-deteksi">Penjelasan Outlier Deteksi</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-outlier-dengan-k-nearest-neighbors-knn-dalam-data-understanding">Deteksi Outlier dengan K-Nearest Neighbors (KNN) dalam data understanding</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sejarah-k-nearest-neighbors-knn">A. Sejarah K-Nearest Neighbors (KNN)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-pengertian">B. Pengertian</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-mengapa-knn-bisa-digunakan-untuk-deteksi-outlier">C. Mengapa KNN Bisa Digunakan untuk Deteksi Outlier?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-langkah-langkah-deteksi-outlier-dengan-knn">D. Langkah-Langkah Deteksi Outlier dengan KNN</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-fungsi-knn-dalam-deteksi-outlier">E. Fungsi KNN dalam Deteksi Outlier</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-kelebihan-knn-dalam-deteksi-outlier">F. Kelebihan KNN dalam Deteksi Outlier</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-kekurangan-knn-dalam-deteksi-outlier">G. Kekurangan KNN dalam Deteksi Outlier</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-pengertian">B. Pengertian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pentingnya-deteksi-outlier">Pentingnya Deteksi Outlier:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-deteksi-outlier">Metode Deteksi Outlier:</a></li>
 </ul>
             </nav>
         </div>
@@ -398,94 +397,31 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="tugas-2">
-<h1>Tugas 2<a class="headerlink" href="#tugas-2" title="Link to this heading">#</a></h1>
-<section id="penjelasan-outlier-deteksi">
-<h2>Penjelasan Outlier Deteksi<a class="headerlink" href="#penjelasan-outlier-deteksi" title="Link to this heading">#</a></h2>
-</section>
-<section id="deteksi-outlier-dengan-k-nearest-neighbors-knn-dalam-data-understanding">
-<h2>Deteksi Outlier dengan K-Nearest Neighbors (KNN) dalam data understanding<a class="headerlink" href="#deteksi-outlier-dengan-k-nearest-neighbors-knn-dalam-data-understanding" title="Link to this heading">#</a></h2>
-<section id="a-sejarah-k-nearest-neighbors-knn">
-<h3>A. Sejarah K-Nearest Neighbors (KNN)<a class="headerlink" href="#a-sejarah-k-nearest-neighbors-knn" title="Link to this heading">#</a></h3>
-<p>K-Nearest Neighbors (KNN) adalah salah satu algoritma yang paling awal dalam machine learning dan statistik. Konsep dasar KNN telah ada sejak tahun 1950-an, tetapi algoritma ini mulai mendapatkan perhatian yang lebih besar pada tahun 1970-an dan 1980-an, terutama dalam konteks pengenalan pola dan klasifikasi. KNN pertama kali diperkenalkan dalam konteks pengenalan pola oleh ahli statistik dan ilmuwan komputer. Seiring dengan perkembangan teknologi dan peningkatan kapasitas komputasi, KNN mulai digunakan dalam berbagai aplikasi, termasuk pengenalan wajah, deteksi penipuan, dan analisis data.</p>
-</section>
+  <p><strong>Tugas 2</strong></p>
+<section class="tex2jax_ignore mathjax_ignore" id="penjelasan-outlier-deteksi">
+<h1>Penjelasan Outlier Deteksi<a class="headerlink" href="#penjelasan-outlier-deteksi" title="Link to this heading">#</a></h1>
 <section id="b-pengertian">
-<h3>B. Pengertian<a class="headerlink" href="#b-pengertian" title="Link to this heading">#</a></h3>
-<p>Deteksi outlier dengan K-Nearest Neighbors (KNN) adalah metode yang digunakan untuk mengidentifikasi data yang tidak biasa atau berbeda dari pola umum dalam dataset. KNN berfungsi dengan cara menghitung jarak antara titik data dan tetangga terdekatnya, kemudian menentukan apakah titik tersebut merupakan outlier berdasarkan distribusi jarak.</p>
+<h2>B. Pengertian<a class="headerlink" href="#b-pengertian" title="Link to this heading">#</a></h2>
+<p>Deteksi outlier adalah proses identifikasi data yang berbeda secara signifikan dari data lainnya dalam suatu dataset. Outlier, atau nilai pencilan, adalah titik data yang berada jauh dari pola umum atau distribusi data yang ada. Deteksi outlier penting dalam analisis data karena outlier dapat mempengaruhi hasil analisis, model prediksi, dan keputusan yang diambil berdasarkan data tersebut.</p>
 </section>
-<section id="c-mengapa-knn-bisa-digunakan-untuk-deteksi-outlier">
-<h3>C. Mengapa KNN Bisa Digunakan untuk Deteksi Outlier?<a class="headerlink" href="#c-mengapa-knn-bisa-digunakan-untuk-deteksi-outlier" title="Link to this heading">#</a></h3>
-<p>KNN adalah metode yang efektif untuk deteksi outlier karena pendekatannya yang berbasis jarak, fleksibilitas dalam pemilihan metrik, dan kemudahan implementasi. Meskipun ada beberapa keterbatasan, seperti kinerja pada dataset besar dan sensitivitas terhadap pemilihan parameter K, KNN tetap menjadi alat yang berguna dalam analisis data dan deteksi outlier.</p>
-</section>
-<section id="d-langkah-langkah-deteksi-outlier-dengan-knn">
-<h3>D. Langkah-Langkah Deteksi Outlier dengan KNN<a class="headerlink" href="#d-langkah-langkah-deteksi-outlier-dengan-knn" title="Link to this heading">#</a></h3>
-<p>Deteksi outlier dengan K-Nearest Neighbors (KNN) melibatkan beberapa langkah yang sistematis. Berikut adalah langkah-langkah umum yang dapat diikuti untuk melakukan deteksi outlier menggunakan KNN:</p>
+<section id="pentingnya-deteksi-outlier">
+<h2>Pentingnya Deteksi Outlier:<a class="headerlink" href="#pentingnya-deteksi-outlier" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Pengumpulan Data</p></li>
+<li><p>Kualitas Data: Outlier dapat menunjukkan kesalahan pengukuran, kesalahan entri data, atau masalah lain dalam pengumpulan data. Mengidentifikasi dan menangani outlier dapat meningkatkan kualitas data.</p></li>
+<li><p>Analisis Statistik: Outlier dapat mempengaruhi statistik deskriptif seperti rata-rata, varians, dan deviasi standar. Dengan mendeteksi outlier, analisis statistik dapat dilakukan dengan lebih akurat.</p></li>
+<li><p>Modeling: Dalam machine learning, outlier dapat mempengaruhi kinerja model. Model yang dilatih dengan data yang mengandung outlier mungkin tidak generalisasi dengan baik pada data baru.</p></li>
+<li><p>Keputusan Bisnis: Dalam konteks bisnis, outlier dapat menunjukkan peluang atau risiko yang tidak biasa. Misalnya, penjualan yang sangat tinggi atau rendah dapat menunjukkan tren pasar yang baru atau masalah dalam rantai pasokan.</p></li>
 </ol>
-<p>Kumpulkan dataset yang akan dianalisis. Pastikan data tersebut relevan dan mencakup fitur yang diperlukan untuk analisis.</p>
-<ol class="arabic simple" start="2">
-<li><p>Pra-pemrosesan Data</p></li>
-</ol>
-<p>Pembersihan Data: Hapus atau perbaiki data yang hilang, duplikat, atau tidak konsisten.
-Normalisasi atau Standarisasi: Jika fitur memiliki skala yang berbeda, lakukan normalisasi (misalnya, Min-Max Scaling) atau standarisasi (misalnya, Z-score) untuk memastikan bahwa semua fitur berkontribusi secara seimbang dalam perhitungan jarak.</p>
-<ol class="arabic simple" start="3">
-<li><p>Pemilihan Parameter K</p></li>
-</ol>
-<p>Tentukan nilai K, yaitu jumlah tetangga terdekat yang akan dipertimbangkan. Nilai K yang umum digunakan adalah 3, 5, atau 10, tetapi pemilihan K yang
-optimal dapat dilakukan melalui teknik validasi silang.</p>
-<ol class="arabic simple" start="4">
-<li><p>Menghitung Jarak</p></li>
-</ol>
-<p>Hitung jarak antara setiap titik data dengan titik data lainnya. Metrik jarak yang umum digunakan adalah Euclidean, Manhattan, atau Minkowski. Pilih metrik yang sesuai dengan karakteristik data.</p>
-<ol class="arabic simple" start="5">
-<li><p>Menentukan Outlier</p></li>
-</ol>
-<p>Untuk setiap titik data, identifikasi K tetangga terdekatnya dan hitung jarak ke tetangga tersebut.
-Hitung rata-rata atau median jarak ke K tetangga terdekat.
-Tentukan ambang batas untuk mengklasifikasikan titik data sebagai outlier. Titik data yang memiliki jarak rata-rata atau median yang jauh lebih besar dari ambang batas dapat dianggap sebagai outlier.</p>
-<ol class="arabic simple" start="6">
-<li><p>Evaluasi Hasil</p></li>
-</ol>
-<p>Tinjau hasil deteksi outlier. Visualisasikan data dan outlier yang terdeteksi untuk memahami distribusi dan pola data.
-Jika memungkinkan, lakukan evaluasi dengan menggunakan metrik seperti precision, recall, atau F1-score jika ada label untuk outlier.</p>
-<ol class="arabic simple" start="7">
-<li><p>Tindakan Lanjutan</p></li>
-</ol>
-<p>Berdasarkan hasil deteksi, tentukan tindakan yang akan diambil terhadap outlier. Ini bisa termasuk menghapus outlier, menandainya untuk analisis lebih lanjut, atau melakukan analisis lebih mendalam untuk memahami penyebabnya.</p>
-<ol class="arabic simple" start="8">
-<li><p>Iterasi dan Penyesuaian</p></li>
-</ol>
-<p>Jika diperlukan, ulangi proses dengan menyesuaikan parameter K atau metode pra-pemrosesan untuk meningkatkan akurasi deteksi outlier.</p>
-<ol class="arabic simple" start="9">
-<li><p>Dokumentasi dan Pelaporan</p></li>
-</ol>
-<p>Dokumentasikan proses yang telah dilakukan, hasil yang diperoleh, dan keputusan yang diambil. Buat laporan yang jelas untuk pemangku kepentingan yang relevan.</p>
 </section>
-<section id="e-fungsi-knn-dalam-deteksi-outlier">
-<h3>E. Fungsi KNN dalam Deteksi Outlier<a class="headerlink" href="#e-fungsi-knn-dalam-deteksi-outlier" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Meningkatkan kualitas data dengan mengidentifikasi dan menghapus outlier.</p></li>
-<li><p>Membantu dalam analisis data yang lebih akurat dengan memastikan bahwa hasil tidak dipengaruhi oleh data yang tidak biasa.</p></li>
-<li><p>Dapat digunakan dalam berbagai aplikasi, seperti deteksi penipuan, analisis risiko, dan pengolahan citra.</p></li>
-</ul>
-</section>
-<section id="f-kelebihan-knn-dalam-deteksi-outlier">
-<h3>F. Kelebihan KNN dalam Deteksi Outlier<a class="headerlink" href="#f-kelebihan-knn-dalam-deteksi-outlier" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Mudah diterapkan: KNN adalah algoritma yang sederhana dan mudah dipahami, sehingga cocok untuk pemula.</p></li>
-<li><p>Adaptasi yang baik: KNN dapat dengan mudah beradaptasi dengan data baru tanpa memerlukan pelatihan ulang.</p></li>
-<li><p>Fleksibilitas: Dapat digunakan dengan berbagai metrik jarak, seperti Euclidean atau Manhattan, untuk menyesuaikan dengan karakteristik data.</p></li>
-</ul>
-</section>
-<section id="g-kekurangan-knn-dalam-deteksi-outlier">
-<h3>G. Kekurangan KNN dalam Deteksi Outlier<a class="headerlink" href="#g-kekurangan-knn-dalam-deteksi-outlier" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Kinerja pada dataset besar: KNN cenderung lambat pada dataset besar karena harus menghitung jarak untuk setiap titik data.</p></li>
-<li><p>Sensitivitas terhadap dimensi tinggi: Kinerja KNN menurun pada data berdimensi tinggi, di mana jarak antar titik menjadi kurang informatif.</p></li>
-<li><p>Pentingnya pemilihan parameter K: Pemilihan nilai K yang tidak tepat dapat menyebabkan overfitting atau underfitting, mempengaruhi akurasi deteksi outlier.</p></li>
-<li><p>Sensitif terhadap noise dan missing values: KNN memerlukan data yang bersih dan lengkap, karena noise dapat mempengaruhi hasil deteksi outlier.</p></li>
-</ul>
+<section id="metode-deteksi-outlier">
+<h2>Metode Deteksi Outlier:<a class="headerlink" href="#metode-deteksi-outlier" title="Link to this heading">#</a></h2>
+<p>Ada berbagai metode untuk mendeteksi outlier, antara lain:</p>
+<ol class="arabic simple">
+<li><p>Statistik Deskriptif: Menggunakan nilai batas seperti 1.5 kali interquartile range (IQR) untuk menentukan outlier.</p></li>
+<li><p>Visualisasi: Menggunakan grafik seperti boxplot atau scatter plot untuk mengidentifikasi outlier secara visual.</p></li>
+<li><p>Metode Pembelajaran Mesin: Menggunakan algoritma seperti Local Outlier Factor (LOF), Isolation Forest, atau One-Class SVM untuk mendeteksi outlier.</p></li>
+<li><p>Analisis Jarak: Menghitung jarak antara titik data dan tetangga terdekat untuk menentukan apakah suatu titik data adalah outlier.</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install pymysql
@@ -767,14 +703,43 @@ Jika memungkinkan, lakukan evaluasi dengan menggunakan metrik seperti precision,
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hitung total outlier</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menampilkan total outlier</span>
 <span class="n">total_outliers</span> <span class="o">=</span> <span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;outlier&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total Outlier: </span><span class="si">{</span><span class="n">total_outliers</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan data outlier</span>
+<span class="n">outlier_data</span> <span class="o">=</span> <span class="n">df_merged</span><span class="p">[</span><span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;outlier&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data Outlier:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">outlier_data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total Outlier: 10
+Data Outlier:
+    id        class  petal length  petal width  sepal length  sepal width  \
+1    2  Iris-setosa          14.0          2.0          40.9         30.0   
+4    5  Iris-setosa           1.4          0.2           5.0          3.6   
+13  14  Iris-setosa           1.1          0.1           4.3          3.0   
+14  15  Iris-setosa           1.2          0.2           5.8          4.0   
+15  16  Iris-setosa           1.5          0.4           5.7          4.4   
+16  17  Iris-setosa           1.3          0.4           5.4          3.9   
+22  23  Iris-setosa           1.0          0.2           4.6          3.6   
+32  33  Iris-setosa           1.5          0.1           5.2          4.1   
+33  34  Iris-setosa           1.4          0.2           5.5          4.2   
+42  43  Iris-setosa           1.3          0.2           4.4          3.2   
+
+     distance  outlier  
+1   46.407542     True  
+4    5.485435     True  
+13   5.644466     True  
+14   5.762812     True  
+15   5.689464     True  
+16   5.554278     True  
+22   5.831809     True  
+32   5.704384     True  
+33   5.746303     True  
+42   5.499091     True  
 </pre></div>
 </div>
 </div>
@@ -946,8 +911,151 @@ Jika memungkinkan, lakukan evaluasi dengan menggunakan metrik seperti precision,
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
+
+<span class="c1"># Load dataset</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
+
+<span class="c1"># Ganti nama kolom agar sesuai dengan permintaan</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">]</span>
+
+<span class="c1"># Pastikan df_merged didefinisikan (jika memang perlu merging, lakukan di sini)</span>
+<span class="n">df_merged</span> <span class="o">=</span> <span class="n">df</span>  <span class="c1"># Jika tidak ada proses merge, gunakan df langsung</span>
+
+<span class="c1"># Ambil fitur yang diminta</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">df_merged</span><span class="p">[[</span><span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">]]</span>
+
+<span class="c1"># Inisialisasi model Local Outlier Factor</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">LocalOutlierFactor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Prediksi anomali/outlier</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Cetak hasil prediksi</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1  1  1  1  1  1  1  1  1  1  1  1  1  1  1 -1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1 -1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1 -1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1 -1 -1  1
+  1  1  1  1  1  1  1  1  1  1  1 -1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Load dataset</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+
+<span class="c1"># Buat DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
+
+<span class="c1"># Ganti nama kolom agar sesuai dengan yang diminta</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">]</span>
+
+<span class="c1"># Ambil semua data</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">]]</span>
+
+<span class="c1"># Cek jumlah data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># Output: (150, 4)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(150, 4)
+     petal_length  petal_width  sepal_length  sepal_width
+0             1.4          0.2           5.1          3.5
+1             1.4          0.2           4.9          3.0
+2             1.3          0.2           4.7          3.2
+3             1.5          0.2           4.6          3.1
+4             1.4          0.2           5.0          3.6
+..            ...          ...           ...          ...
+145           5.2          2.3           6.7          3.0
+146           5.0          1.9           6.3          2.5
+147           5.2          2.0           6.5          3.0
+148           5.4          2.3           6.2          3.4
+149           5.1          1.8           5.9          3.0
+
+[150 rows x 4 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
+
+<span class="c1"># Load dataset Iris</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
+
+<span class="c1"># Ubah nama kolom agar sesuai dengan permintaan</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_width&quot;</span><span class="p">,</span> <span class="s2">&quot;petal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;petal_width&quot;</span><span class="p">]</span>
+
+<span class="c1"># Tidak ada proses merge, jadi gunakan df langsung</span>
+<span class="n">df_merged</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Ambil fitur yang akan digunakan</span>
+<span class="n">feature_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;petal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;petal_width&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_width&quot;</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df_merged</span><span class="p">[</span><span class="n">feature_columns</span><span class="p">]</span>
+
+<span class="c1"># Inisialisasi model Local Outlier Factor</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">LocalOutlierFactor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Prediksi outlier (-1 = outlier, 1 = inlier)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Tambahkan hasil prediksi ke dalam DataFrame</span>
+<span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;outlier&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_pred</span>
+
+<span class="c1"># Tampilkan beberapa data pertama</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_merged</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># Hitung jumlah inlier dan outlier</span>
+<span class="n">outlier_count</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">inlier_count</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Jumlah Inlier: </span><span class="si">{</span><span class="n">inlier_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah Outlier: </span><span class="si">{</span><span class="n">outlier_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   sepal_length  sepal_width  petal_length  petal_width  outlier
+0           5.1          3.5           1.4          0.2        1
+1           4.9          3.0           1.4          0.2        1
+2           4.7          3.2           1.3          0.2        1
+3           4.6          3.1           1.5          0.2        1
+4           5.0          3.6           1.4          0.2        1
+
+Jumlah Inlier: 144
+Jumlah Outlier: 6
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-</section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -989,6 +1097,15 @@ Jika memungkinkan, lakukan evaluasi dengan menggunakan metrik seperti precision,
         <p class="prev-next-title">Tugas 1 Pendata</p>
       </div>
     </a>
+    <a class="right-next"
+       href="KNN.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Deteksi Outlier dengan K-Nearest Neighbors (KNN) dalam Data Understanding</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1005,17 +1122,9 @@ Jika memungkinkan, lakukan evaluasi dengan menggunakan metrik seperti precision,
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-outlier-deteksi">Penjelasan Outlier Deteksi</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-outlier-dengan-k-nearest-neighbors-knn-dalam-data-understanding">Deteksi Outlier dengan K-Nearest Neighbors (KNN) dalam data understanding</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sejarah-k-nearest-neighbors-knn">A. Sejarah K-Nearest Neighbors (KNN)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-pengertian">B. Pengertian</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-mengapa-knn-bisa-digunakan-untuk-deteksi-outlier">C. Mengapa KNN Bisa Digunakan untuk Deteksi Outlier?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-langkah-langkah-deteksi-outlier-dengan-knn">D. Langkah-Langkah Deteksi Outlier dengan KNN</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-fungsi-knn-dalam-deteksi-outlier">E. Fungsi KNN dalam Deteksi Outlier</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-kelebihan-knn-dalam-deteksi-outlier">F. Kelebihan KNN dalam Deteksi Outlier</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-kekurangan-knn-dalam-deteksi-outlier">G. Kekurangan KNN dalam Deteksi Outlier</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-pengertian">B. Pengertian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pentingnya-deteksi-outlier">Pentingnya Deteksi Outlier:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-deteksi-outlier">Metode Deteksi Outlier:</a></li>
 </ul>
   </nav></div>
 

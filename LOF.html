@@ -57,6 +57,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'LOF';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -438,26 +440,34 @@ document.write(`
 </section>
 <section id="menghitung-reachability-distance">
 <h3>3. Menghitung Reachability Distance<a class="headerlink" href="#menghitung-reachability-distance" title="Link to this heading">#</a></h3>
-<p>[
+<div class="math notranslate nohighlight">
+\[
+\[
 \text{reachability-distance}(p, o) = \max(\text{k-distance}(o), d(p, o))
-]
-Di mana:</p>
+\]
+\]</div>
+<p>Di mana:</p>
 <ul class="simple">
-<li><p>( d(p, o) ) adalah jarak antara titik ( p ) dan tetangganya ( o ),</p></li>
-<li><p>( \text{k-distance}(o) ) adalah jarak ke tetangga ke-( k ) dari ( o ).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\( d(p, o) \) adalah jarak antara titik \( p \) dan tetangganya \( o \),\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\( \text{k-distance}(o) \) adalah jarak ke tetangga ke-\( k \) dari \( o \).\)</span></p></li>
 </ul>
 </section>
 <section id="menghitung-kepadatan-lokal-local-reachability-density-lrd">
 <h3>4. Menghitung Kepadatan Lokal (Local Reachability Density, LRD)<a class="headerlink" href="#menghitung-kepadatan-lokal-local-reachability-density-lrd" title="Link to this heading">#</a></h3>
-<p>[
+<div class="math notranslate nohighlight">
+\[
+\[
 \text{LRD}(p) = \frac{k}{\sum_{o \in kNN(p)} \text{reachability-distance}(p, o)}
-]</p>
+\]
+\]</div>
 </section>
 <section id="menghitung-local-outlier-factor-lof">
 <h3>5. Menghitung Local Outlier Factor (LOF)<a class="headerlink" href="#menghitung-local-outlier-factor-lof" title="Link to this heading">#</a></h3>
-<p>[
+<div class="math notranslate nohighlight">
+\[\[
 \text{LOF}(p) = \frac{\sum_{o \in kNN(p)} \frac{\text{LRD}(o)}{\text{LRD}(p)}}{k}
-]</p>
+\]
+\]</div>
 <ul class="simple">
 <li><p>Jika <strong>LOF ≈ 1</strong>, titik tersebut bukan outlier.</p></li>
 <li><p>Jika <strong>LOF &gt; 1</strong>, titik tersebut berpotensi sebagai outlier.</p></li>

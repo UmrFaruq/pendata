@@ -184,7 +184,6 @@
 <li class="toctree-l2"><a class="reference internal" href="KNN.html">Deteksi Outlier dengan K-Nearest Neighbors (KNN) dalam Data Understanding</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Deteksi Outlier dengan metode Local Outlier Factor (LOF) dalam Data Understanding</a></li>
 
-
 </ul>
 </details></li>
 </ul>
@@ -383,19 +382,16 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Deteksi Outlier dengan metode Local Outlier Factor (LOF) dalam Data Understanding</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-itu-lof">APA ITU LOF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bagaimana-tahapan-lof">BAGAIMANA TAHAPAN LOF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-itu-lof">APA ITU LOF ??</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bagaimana-tahapan-lof">BAGAIMANA TAHAPAN LOF ??</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-local-outlier-factor-lof">Tahapan Local Outlier Factor (LOF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-jumlah-tetangga-k-nearest-neighbors">1. Menentukan Jumlah Tetangga (k-nearest neighbors)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-jarak-k-tetangga-k-distance">2. Menghitung Jarak K-Tetangga (k-distance)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-reachability-distance">3. Menghitung Reachability Distance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-kepadatan-lokal-local-reachability-density-lrd">4. Menghitung Kepadatan Lokal (Local Reachability Density, LRD)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-local-outlier-factor-lof">5. Menghitung Local Outlier Factor (LOF)</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-metode-local-outlier-factor-lof-dalam-mendeteksi-outlier"><strong>Tahapan Metode Local Outlier Factor (LOF) dalam Mendeteksi Outlier</strong></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-parameter-k-jumlah-tetangga">1. Menentukan Parameter k (Jumlah Tetangga)**</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-jarak-euclidean-ke-titik-titik-lain">2. Menghitung Jarak Euclidean ke Titik-Titik Lain**</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-k-tetangga-terdekat-k-nearest-neighbors">3. Menentukan k-Tetangga Terdekat (k-Nearest Neighbors)**</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-k-distance-jarak-ke-tetangga-ke-k">4. Menghitung k-Distance (Jarak ke Tetangga ke-k)**</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-reachability-distance">5. Menghitung Reachability Distance**</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-local-reachability-density-lrd">6. Menghitung Local Reachability Density (LRD)**</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-local-outlier-factor-lof">7. Menghitung Local Outlier Factor (LOF)**</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-hasil">8. Interpretasi Hasil**</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-menghitung-manual-lof">CONTOH MENGHITUNG MANUAL LOF</a></li>
 </ul>
 </li>
@@ -424,119 +420,49 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="deteksi-outlier-dengan-metode-local-outlier-factor-lof-dalam-data-understanding">
 <h1>Deteksi Outlier dengan metode Local Outlier Factor (LOF) dalam Data Understanding<a class="headerlink" href="#deteksi-outlier-dengan-metode-local-outlier-factor-lof-dalam-data-understanding" title="Link to this heading">#</a></h1>
 <section id="apa-itu-lof">
-<h2>APA ITU LOF<a class="headerlink" href="#apa-itu-lof" title="Link to this heading">#</a></h2>
+<h2>APA ITU LOF ??<a class="headerlink" href="#apa-itu-lof" title="Link to this heading">#</a></h2>
 <p>Algoritme Faktor Outlier Lokal (LOF) adalah metode deteksi anomali tanpa pengawasan yang menghitung deviasi kerapatan lokal dari titik data tertentu terhadap tetangganya. Algoritme ini menganggap outlier sebagai sampel yang memiliki kerapatan yang jauh lebih rendah daripada tetangganya.</p>
 </section>
 <section id="bagaimana-tahapan-lof">
-<h2>BAGAIMANA TAHAPAN LOF<a class="headerlink" href="#bagaimana-tahapan-lof" title="Link to this heading">#</a></h2>
+<h2>BAGAIMANA TAHAPAN LOF ??<a class="headerlink" href="#bagaimana-tahapan-lof" title="Link to this heading">#</a></h2>
 </section>
+<section id="tahapan-local-outlier-factor-lof">
+<h2>Tahapan Local Outlier Factor (LOF)<a class="headerlink" href="#tahapan-local-outlier-factor-lof" title="Link to this heading">#</a></h2>
+<section id="menentukan-jumlah-tetangga-k-nearest-neighbors">
+<h3>1. Menentukan Jumlah Tetangga (k-nearest neighbors)<a class="headerlink" href="#menentukan-jumlah-tetangga-k-nearest-neighbors" title="Link to this heading">#</a></h3>
+<p>Tentukan sejumlah tetangga terdekat berdasarkan metrik jarak seperti <strong>Euclidean distance</strong>.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="tahapan-metode-local-outlier-factor-lof-dalam-mendeteksi-outlier">
-<h1><strong>Tahapan Metode Local Outlier Factor (LOF) dalam Mendeteksi Outlier</strong><a class="headerlink" href="#tahapan-metode-local-outlier-factor-lof-dalam-mendeteksi-outlier" title="Link to this heading">#</a></h1>
-<p>Local Outlier Factor (<strong>LOF</strong>) adalah metode untuk mendeteksi <strong>outlier</strong> berdasarkan <strong>kepadatan lokal</strong> suatu titik dibandingkan dengan titik-titik tetangganya. Berikut adalah tahapan lengkap dari metode LOF:</p>
-<section id="menentukan-parameter-k-jumlah-tetangga">
-<h2>1. Menentukan Parameter k (Jumlah Tetangga)**<a class="headerlink" href="#menentukan-parameter-k-jumlah-tetangga" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Pilih nilai <strong>k</strong>, yaitu jumlah tetangga terdekat yang akan dipertimbangkan.</p></li>
-<li><p>Nilai <strong>k</strong> yang umum digunakan adalah <strong>2 hingga 5</strong> untuk dataset kecil dan lebih besar untuk dataset yang lebih kompleks.</p></li>
-<li><p>Tetangga ini digunakan untuk membandingkan kepadatan titik yang diuji dengan kepadatan lingkungannya.</p></li>
-</ul>
-</section>
-<section id="menghitung-jarak-euclidean-ke-titik-titik-lain">
-<h2>2. Menghitung Jarak Euclidean ke Titik-Titik Lain**<a class="headerlink" href="#menghitung-jarak-euclidean-ke-titik-titik-lain" title="Link to this heading">#</a></h2>
-<ul>
-<li><p>Untuk setiap titik dalam dataset, hitung <strong>jarak Euclidean</strong> ke semua titik lainnya menggunakan rumus:</p>
-<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>d(A, B) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
-</pre></div>
-</div>
-</li>
-<li><p>Contoh perhitungan jarak antara dua titik:</p>
-<ul>
-<li><p>Titik <strong>P(3.0, 4.0)</strong> dan titik <strong>Q(2.0, 3.0)</strong></p>
-<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>d(P, Q) = \sqrt{(3 - 2)^2 + (4 - 3)^2} = \sqrt{1 + 1} = 1.41
-</pre></div>
-</div>
-</li>
-</ul>
-</li>
-<li><p>Lakukan ini untuk semua pasangan titik dalam dataset.</p></li>
-</ul>
-</section>
-<section id="menentukan-k-tetangga-terdekat-k-nearest-neighbors">
-<h2>3. Menentukan k-Tetangga Terdekat (k-Nearest Neighbors)**<a class="headerlink" href="#menentukan-k-tetangga-terdekat-k-nearest-neighbors" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Setelah menghitung semua jarak antar titik, tentukan <strong>k tetangga terdekat</strong> untuk setiap titik.</p></li>
-<li><p>Tetangga terdekat didasarkan pada hasil perhitungan jarak <strong>terkecil</strong>.</p></li>
-<li><p>Contoh: Jika <strong>k = 2</strong>, maka untuk titik <strong>(3.0, 4.0)</strong>, tetangga terdekatnya bisa jadi titik <strong>(2.0, 3.0)</strong> dan <strong>(4.0, 5.0)</strong>.</p></li>
-</ul>
-</section>
-<section id="menghitung-k-distance-jarak-ke-tetangga-ke-k">
-<h2>4. Menghitung k-Distance (Jarak ke Tetangga ke-k)**<a class="headerlink" href="#menghitung-k-distance-jarak-ke-tetangga-ke-k" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>k-Distance(P)</strong> adalah jarak dari titik <strong>P</strong> ke tetangga ke-<strong>k</strong> yang terdekat.</p></li>
-<li><p>Jika <strong>k = 2</strong>, maka k-Distance adalah jarak ke <strong>tetangga terdekat kedua</strong>.</p></li>
-<li><p>Contoh: Jika titik <strong>P (3.0, 4.0)</strong> memiliki dua tetangga terdekat dengan jarak <strong>1.41</strong> dan <strong>1.41</strong>, maka <strong>k-Distance(P) = 1.41</strong>.</p></li>
-</ul>
+<section id="menghitung-jarak-k-tetangga-k-distance">
+<h3>2. Menghitung Jarak K-Tetangga (k-distance)<a class="headerlink" href="#menghitung-jarak-k-tetangga-k-distance" title="Link to this heading">#</a></h3>
+<p>Jarak ke tetangga ke-( k ) disebut sebagai <strong>k-distance</strong>.</p>
 </section>
 <section id="menghitung-reachability-distance">
-<h2>5. Menghitung Reachability Distance**<a class="headerlink" href="#menghitung-reachability-distance" title="Link to this heading">#</a></h2>
-<ul>
-<li><p><strong>Reachability distance</strong> mengukur apakah titik memiliki kepadatan lebih rendah atau lebih tinggi dibandingkan tetangganya.</p></li>
-<li><p>Dihitung dengan rumus:</p>
-<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>\text{reach-dist}(P, O) = \max(\text{k-Distance(O)}, d(P, O))
-</pre></div>
-</div>
-</li>
-<li><p>Jika titik <strong>O</strong> sangat dekat dengan titik <strong>P</strong>, reachability distance tetap minimal sebesar <strong>k-Distance(O)</strong>.</p></li>
-<li><p>Contoh:</p>
-<ul>
-<li><p><strong>k-Distance(O) = 1.41</strong>, <strong>d(P, O) = 1.00</strong></p>
-<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>\text{reach-dist}(P, O) = \max(1.41, 1.00) = 1.41
-</pre></div>
-</div>
-</li>
-</ul>
-</li>
+<h3>3. Menghitung Reachability Distance<a class="headerlink" href="#menghitung-reachability-distance" title="Link to this heading">#</a></h3>
+<p>[
+\text{reachability-distance}(p, o) = \max(\text{k-distance}(o), d(p, o))
+]
+Di mana:</p>
+<ul class="simple">
+<li><p>( d(p, o) ) adalah jarak antara titik ( p ) dan tetangganya ( o ),</p></li>
+<li><p>( \text{k-distance}(o) ) adalah jarak ke tetangga ke-( k ) dari ( o ).</p></li>
 </ul>
 </section>
-<section id="menghitung-local-reachability-density-lrd">
-<h2>6. Menghitung Local Reachability Density (LRD)**<a class="headerlink" href="#menghitung-local-reachability-density-lrd" title="Link to this heading">#</a></h2>
-<ul>
-<li><p><strong>LRD</strong> menunjukkan kepadatan lokal suatu titik dibandingkan dengan tetangganya.</p></li>
-<li><p>Rumus:</p>
-<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>LRD(P) = \frac{1}{\frac{1}{k} \sum_{O \in kNN(P)} \text{reach-dist}(P, O)}
-</pre></div>
-</div>
-</li>
-<li><p>Semakin besar nilai <strong>LRD(P)</strong>, semakin padat lingkungan sekitar titik <strong>P</strong>.</p></li>
-<li><p>Contoh:</p>
-<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>LRD(P) = \frac{1}{\frac{1}{2} \times (1.41 + 1.41)} = 0.71
-</pre></div>
-</div>
-</li>
-</ul>
+<section id="menghitung-kepadatan-lokal-local-reachability-density-lrd">
+<h3>4. Menghitung Kepadatan Lokal (Local Reachability Density, LRD)<a class="headerlink" href="#menghitung-kepadatan-lokal-local-reachability-density-lrd" title="Link to this heading">#</a></h3>
+<p>[
+\text{LRD}(p) = \frac{k}{\sum_{o \in kNN(p)} \text{reachability-distance}(p, o)}
+]</p>
 </section>
 <section id="menghitung-local-outlier-factor-lof">
-<h2>7. Menghitung Local Outlier Factor (LOF)**<a class="headerlink" href="#menghitung-local-outlier-factor-lof" title="Link to this heading">#</a></h2>
-<ul>
-<li><p>LOF membandingkan <strong>LRD suatu titik</strong> dengan <strong>LRD tetangga-tetangganya</strong>.</p></li>
-<li><p>Rumus:</p>
-<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>LOF(P) = \frac{\frac{1}{k} \sum_{O \in kNN(P)} LRD(O)}{LRD(P)}
-</pre></div>
-</div>
-</li>
-<li><p>Jika <strong>LOF ≈ 1</strong>, maka titik tidak dianggap sebagai outlier.</p></li>
-<li><p>Jika <strong>LOF &gt; 1</strong>, maka titik memiliki kepadatan lebih rendah dibandingkan tetangganya (<strong>kemungkinan outlier</strong>).</p></li>
-<li><p>Jika <strong>LOF \gg 1 (misalnya &gt; 1.5 atau &gt; 2)</strong>, maka titik tersebut sangat berbeda dari sekitarnya (<strong>outlier kuat</strong>).</p></li>
+<h3>5. Menghitung Local Outlier Factor (LOF)<a class="headerlink" href="#menghitung-local-outlier-factor-lof" title="Link to this heading">#</a></h3>
+<p>[
+\text{LOF}(p) = \frac{\sum_{o \in kNN(p)} \frac{\text{LRD}(o)}{\text{LRD}(p)}}{k}
+]</p>
+<ul class="simple">
+<li><p>Jika <strong>LOF ≈ 1</strong>, titik tersebut bukan outlier.</p></li>
+<li><p>Jika <strong>LOF &gt; 1</strong>, titik tersebut berpotensi sebagai outlier.</p></li>
 </ul>
 </section>
-<section id="interpretasi-hasil">
-<h2>8. Interpretasi Hasil**<a class="headerlink" href="#interpretasi-hasil" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>LOF ≈ 1</strong> → Titik berada di lingkungan yang seimbang (bukan outlier).</p></li>
-<li><p><strong>LOF &gt; 1</strong> → Titik memiliki kepadatan lebih rendah dibandingkan dengan tetangganya (<strong>mungkin outlier</strong>).</p></li>
-<li><p><strong>LOF \gg 1 (misalnya &gt; 2.0 atau lebih)</strong> → Titik merupakan <strong>outlier signifikan</strong>.</p></li>
-</ul>
 </section>
 <section id="contoh-menghitung-manual-lof">
 <h2>CONTOH MENGHITUNG MANUAL LOF<a class="headerlink" href="#contoh-menghitung-manual-lof" title="Link to this heading">#</a></h2>
@@ -1065,19 +991,16 @@ Data Outlier:
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Deteksi Outlier dengan metode Local Outlier Factor (LOF) dalam Data Understanding</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-itu-lof">APA ITU LOF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bagaimana-tahapan-lof">BAGAIMANA TAHAPAN LOF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-itu-lof">APA ITU LOF ??</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bagaimana-tahapan-lof">BAGAIMANA TAHAPAN LOF ??</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-local-outlier-factor-lof">Tahapan Local Outlier Factor (LOF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-jumlah-tetangga-k-nearest-neighbors">1. Menentukan Jumlah Tetangga (k-nearest neighbors)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-jarak-k-tetangga-k-distance">2. Menghitung Jarak K-Tetangga (k-distance)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-reachability-distance">3. Menghitung Reachability Distance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-kepadatan-lokal-local-reachability-density-lrd">4. Menghitung Kepadatan Lokal (Local Reachability Density, LRD)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-local-outlier-factor-lof">5. Menghitung Local Outlier Factor (LOF)</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-metode-local-outlier-factor-lof-dalam-mendeteksi-outlier"><strong>Tahapan Metode Local Outlier Factor (LOF) dalam Mendeteksi Outlier</strong></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-parameter-k-jumlah-tetangga">1. Menentukan Parameter k (Jumlah Tetangga)**</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-jarak-euclidean-ke-titik-titik-lain">2. Menghitung Jarak Euclidean ke Titik-Titik Lain**</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-k-tetangga-terdekat-k-nearest-neighbors">3. Menentukan k-Tetangga Terdekat (k-Nearest Neighbors)**</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-k-distance-jarak-ke-tetangga-ke-k">4. Menghitung k-Distance (Jarak ke Tetangga ke-k)**</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-reachability-distance">5. Menghitung Reachability Distance**</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-local-reachability-density-lrd">6. Menghitung Local Reachability Density (LRD)**</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-local-outlier-factor-lof">7. Menghitung Local Outlier Factor (LOF)**</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-hasil">8. Interpretasi Hasil**</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-menghitung-manual-lof">CONTOH MENGHITUNG MANUAL LOF</a></li>
 </ul>
 </li>

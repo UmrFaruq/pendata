@@ -441,32 +441,23 @@ document.write(`
 <section id="menghitung-reachability-distance">
 <h3>3. Menghitung Reachability Distance<a class="headerlink" href="#menghitung-reachability-distance" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
-\[
-\[
-\text{reachability-distance}(p, o) = \max(\text{k-distance}(o), d(p, o))
-\]
-\]</div>
+\[\text{reachability-distance}(p, o) = \max(\text{k-distance}(o), d(p, o))\]</div>
 <p>Di mana:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\( d(p, o) \) adalah jarak antara titik \( p \) dan tetangganya \( o \),\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\( \text{k-distance}(o) \) adalah jarak ke tetangga ke-\( k \) dari \( o \).\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( d(p, o) \) adalah jarak antara titik \( p \) dan tetangganya \( o \),\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( \text{k-distance}(o) \) adalah jarak ke tetangga ke-\( k \) dari \( o \).\)</span></p></li>
 </ul>
 </section>
 <section id="menghitung-kepadatan-lokal-local-reachability-density-lrd">
 <h3>4. Menghitung Kepadatan Lokal (Local Reachability Density, LRD)<a class="headerlink" href="#menghitung-kepadatan-lokal-local-reachability-density-lrd" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
-\[
-\[
-\text{LRD}(p) = \frac{k}{\sum_{o \in kNN(p)} \text{reachability-distance}(p, o)}
-\]
-\]</div>
+\[\text{LRD}(p) = \frac{k}{\sum_{o \in kNN(p)} \text{reachability-distance}(p, o)}\]</div>
 </section>
 <section id="menghitung-local-outlier-factor-lof">
 <h3>5. Menghitung Local Outlier Factor (LOF)<a class="headerlink" href="#menghitung-local-outlier-factor-lof" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
-\[\[
+\[
 \text{LOF}(p) = \frac{\sum_{o \in kNN(p)} \frac{\text{LRD}(o)}{\text{LRD}(p)}}{k}
-\]
 \]</div>
 <ul class="simple">
 <li><p>Jika <strong>LOF ≈ 1</strong>, titik tersebut bukan outlier.</p></li>

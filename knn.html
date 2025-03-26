@@ -385,15 +385,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-knn-bisa-digunakan-untuk-deteksi-outlier">1. Mengapa KNN Bisa Digunakan untuk Deteksi Outlier?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-deteksi-outlier-dengan-knn">2. Langkah-Langkah Deteksi Outlier dengan KNN</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-semua-data-dan-grafik">Menampilkan Semua Data dan Grafik</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-perhitungan"><strong>1. Cara Perhitungan</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-kerja-perhitungan"><strong>2. Cara Kerja Perhitungan</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kegunaan-kode"><strong>3. Kegunaan Kode</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memisahkan-outlier-dari-data">Memisahkan Outlier dari data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>1. Cara Perhitungan</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>2. Cara Kerja Perhitungan</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-akurasi-data">Menghitung Akurasi Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data">Visualisasi Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-semua-data-dan-grafik"><strong>Menampilkan Semua Data dan Grafik</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memisahkan-outlier-dari-data"><strong>Memisahkan Outlier dari data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-akurasi-data"><strong>Menghitung Akurasi Data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data"><strong>Visualisasi Data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-naive-bayes-pad-data"><strong>Implementasi Naive Bayes pad Data</strong></a></li>
 </ul>
 </li>
 </ul>
@@ -453,7 +449,7 @@ document.write(`
 <li><p>Nilai k harus cukup besar untuk menangkap pola distribusi data, tetapi tidak terlalu besar agar tetap sensitif terhadap outlier.</p></li>
 <li><p>Umumnya, k dipilih antara 5 hingga 10 tergantung pada ukuran dataset.</p></li>
 </ul>
-<p>d, <strong>Hitung Jarak ke k Tetangga Terdekat</strong></p>
+<p>d. <strong>Hitung Jarak ke k Tetangga Terdekat</strong></p>
 <ul class="simple">
 <li><p>Untuk setiap titik data, hitung jarak ke k tetangga terdekatnya.</p></li>
 <li><p>Simpan nilai jarak rata-rata atau jarak maksimum dari titik tersebut ke k tetangganya.</p></li>
@@ -502,7 +498,7 @@ Coba metode tambahan seperti DBSCAN atau Isolation Forest untuk membandingkan pe
 </div>
 <p>Kode diatas digunakan untuk menginstal dua pustaka Python, yaitu pymysql dan psycopg2, yang berfungsi sebagai konektor untuk basis data (database). Pustaka pymysql digunakan untuk menghubungkan aplikasi Python dengan database MySQL atau MariaDB menggunakan protokol MySQL asli. Sementara itu, psycopg2 merupakan pustaka yang digunakan untuk menghubungkan Python dengan database PostgreSQL, menyediakan antarmuka yang efisien untuk menjalankan perintah SQL dan berinteraksi dengan database tersebut. Kedua perintah ini menggunakan magic command %pip, yang umumnya digunakan dalam lingkungan Jupyter Notebook untuk memastikan bahwa paket yang diperlukan diinstal dalam kernel yang sedang berjalan.</p>
 <section id="menampilkan-semua-data-dan-grafik">
-<h3>Menampilkan Semua Data dan Grafik<a class="headerlink" href="#menampilkan-semua-data-dan-grafik" title="Link to this heading">#</a></h3>
+<h3><strong>Menampilkan Semua Data dan Grafik</strong><a class="headerlink" href="#menampilkan-semua-data-dan-grafik" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">psycopg2</span>
@@ -743,9 +739,7 @@ Jumlah data setelah outlier dihapus: 135
 <img alt="_images/e93dac1e800203d91e46fa59b76b23da335c1e17260b571520aa97e26d40a9a1.png" src="_images/e93dac1e800203d91e46fa59b76b23da335c1e17260b571520aa97e26d40a9a1.png" />
 </div>
 </div>
-</section>
-<section id="cara-perhitungan">
-<h3><strong>1. Cara Perhitungan</strong><a class="headerlink" href="#cara-perhitungan" title="Link to this heading">#</a></h3>
+<p><strong>1. Cara Perhitungan</strong></p>
 <p>a Mengambil Data dari Database PostgreSQL &amp; MySQL</p>
 <ol class="arabic simple">
 <li><p>Kode mengambil data dari PostgreSQL (get_pg_data()) dan MySQL (get_mysql_data()).</p></li>
@@ -788,9 +782,7 @@ python</p></li>
 <ul class="simple">
 <li><p>Data yang bukan outlier (False) dipertahankan.</p></li>
 </ul>
-</section>
-<section id="cara-kerja-perhitungan">
-<h3><strong>2. Cara Kerja Perhitungan</strong><a class="headerlink" href="#cara-kerja-perhitungan" title="Link to this heading">#</a></h3>
+<p><strong>2. Cara Kerja Perhitungan</strong></p>
 <p>Kode ini menggunakan metode K-Nearest Neighbors (KNN) Outlier Detection yang bekerja dengan mengukur jarak setiap titik ke tetangga terdekatnya. Berikut adalah langkah-langkahnya:</p>
 <ol class="arabic simple">
 <li><p>Ambil data dari dua database (PostgreSQL &amp; MySQL).</p></li>
@@ -801,9 +793,7 @@ python</p></li>
 <li><p>Hapus outlier dan simpan data bersih.</p></li>
 <li><p>Visualisasikan data sebelum dan sesudah outlier dihapus.</p></li>
 </ol>
-</section>
-<section id="kegunaan-kode">
-<h3><strong>3. Kegunaan Kode</strong><a class="headerlink" href="#kegunaan-kode" title="Link to this heading">#</a></h3>
+<p><strong>3. Kegunaan Kode</strong></p>
 <p>Kode ini berguna untuk:</p>
 <ol class="arabic simple">
 <li><p>Mengidentifikasi outlier dalam dataset berdasarkan jarak ke tetangga terdekat.</p></li>
@@ -813,7 +803,7 @@ python</p></li>
 </ol>
 </section>
 <section id="memisahkan-outlier-dari-data">
-<h3>Memisahkan Outlier dari data<a class="headerlink" href="#memisahkan-outlier-dari-data" title="Link to this heading">#</a></h3>
+<h3><strong>Memisahkan Outlier dari data</strong><a class="headerlink" href="#memisahkan-outlier-dari-data" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">psycopg2</span>
@@ -1212,9 +1202,7 @@ Data tidak outlier :
 </div>
 </div>
 </div>
-</section>
-<section id="id1">
-<h3><strong>1. Cara Perhitungan</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>1. Cara Perhitungan</strong></p>
 <p>Kode ini menggunakan Local Outlier Factor (LOF) untuk mendeteksi outlier dalam dataset berdasarkan kepadatan lokal (local density). LOF bekerja dengan cara berikut:</p>
 <ol class="arabic simple">
 <li><p>Menghitung jarak ke tetangga terdekat</p></li>
@@ -1236,9 +1224,7 @@ Data tidak outlier :
 <li><p>Jika skor -1, maka titik dianggap outlier.</p></li>
 <li><p>Jika skor 1, maka titik dianggap bukan outlier.</p></li>
 </ul>
-</section>
-<section id="id2">
-<h3><strong>2. Cara Kerja Perhitungan</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><strong>2. Cara Kerja Perhitungan</strong></p>
 <p>Berikut adalah langkah-langkah utama dalam kode ini:</p>
 <p>a. Mengambil Data dari Database PostgreSQL &amp; MySQL</p>
 <ul class="simple">
@@ -1288,7 +1274,7 @@ Data tidak outlier :
 </ul>
 </section>
 <section id="menghitung-akurasi-data">
-<h3>Menghitung Akurasi Data<a class="headerlink" href="#menghitung-akurasi-data" title="Link to this heading">#</a></h3>
+<h3><strong>Menghitung Akurasi Data</strong><a class="headerlink" href="#menghitung-akurasi-data" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df_merged</span><span class="p">[</span><span class="n">feature_columns</span><span class="p">]</span>
@@ -1370,7 +1356,7 @@ Iris-versicolor       1.00      0.71      0.83         7
 <p>Selanjutnya, dataset dibagi menjadi <strong>data pelatihan (80%) dan pengujian (20%)</strong>, baik untuk dataset dengan outlier (<code class="docutils literal notranslate"><span class="pre">X_train_all,</span> <span class="pre">X_test_all</span></code>) maupun tanpa outlier (<code class="docutils literal notranslate"><span class="pre">X_train_clean,</span> <span class="pre">X_test_clean</span></code>). Model <strong>KNN (dengan 11 tetangga)</strong> diterapkan dalam <strong>pipeline yang mencakup StandardScaler</strong> untuk menormalkan data sebelum pelatihan. Model pertama dilatih dengan <strong>data yang masih mengandung outlier</strong>, lalu diuji, dan hasil akurasinya dicetak. Kemudian, model yang sama dilatih menggunakan <strong>data tanpa outlier</strong>, dan akurasinya dibandingkan. Evaluasi model dilakukan dengan <strong>classification report</strong>, yang menunjukkan metrik seperti <strong>precision, recall, dan F1-score</strong>. Hasil akhirnya memungkinkan perbandingan dampak penghapusan outlier terhadap performa klasifikasi KNN.</p>
 </section>
 <section id="visualisasi-data">
-<h3>Visualisasi Data<a class="headerlink" href="#visualisasi-data" title="Link to this heading">#</a></h3>
+<h3><strong>Visualisasi Data</strong><a class="headerlink" href="#visualisasi-data" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1620,6 +1606,112 @@ Iris-versicolor       0.56      0.83      0.67         6
 </div>
 </div>
 </section>
+<section id="implementasi-naive-bayes-pad-data">
+<h3><strong>Implementasi Naive Bayes pad Data</strong><a class="headerlink" href="#implementasi-naive-bayes-pad-data" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Asumsikan df_merged sudah ada dari kode sebelumnya</span>
+
+<span class="c1"># Encode label kelas ke numerik</span>
+<span class="n">label_encoder</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;class_encoded&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">label_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">])</span>
+
+<span class="c1"># Data dengan outlier</span>
+<span class="n">X_all</span> <span class="o">=</span> <span class="n">df_merged</span><span class="p">[</span><span class="n">feature_columns</span><span class="p">]</span>
+<span class="n">y_all</span> <span class="o">=</span> <span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;class_encoded&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>  <span class="c1"># Pastikan dalam bentuk array numpy</span>
+
+<span class="c1"># Data tanpa outlier</span>
+<span class="n">df_cleaned</span> <span class="o">=</span> <span class="n">df_merged</span><span class="p">[</span><span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;outlier&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;outlier&quot;</span><span class="p">])</span>
+<span class="n">X_clean</span> <span class="o">=</span> <span class="n">df_cleaned</span><span class="p">[</span><span class="n">feature_columns</span><span class="p">]</span>
+<span class="n">y_clean</span> <span class="o">=</span> <span class="n">df_cleaned</span><span class="p">[</span><span class="s2">&quot;class_encoded&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>  <span class="c1"># Pastikan dalam bentuk array numpy</span>
+
+<span class="c1"># Split data dengan outlier</span>
+<span class="n">X_train_all</span><span class="p">,</span> <span class="n">X_test_all</span><span class="p">,</span> <span class="n">y_train_all</span><span class="p">,</span> <span class="n">y_test_all</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Split data tanpa outlier</span>
+<span class="n">X_train_clean</span><span class="p">,</span> <span class="n">X_test_clean</span><span class="p">,</span> <span class="n">y_train_clean</span><span class="p">,</span> <span class="n">y_test_clean</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_clean</span><span class="p">,</span> <span class="n">y_clean</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Inisialisasi model Naive Bayes</span>
+<span class="n">gnb</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+
+<span class="c1"># Latih dan uji model dengan outlier</span>
+<span class="n">y_pred_all</span> <span class="o">=</span> <span class="n">gnb</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_all</span><span class="p">,</span> <span class="n">y_train_all</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_all</span><span class="p">)</span>
+<span class="n">mislabeled_all</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_test_all</span> <span class="o">!=</span> <span class="n">y_pred_all</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">accuracy_all</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_all</span><span class="p">,</span> <span class="n">y_pred_all</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of mislabeled points with outliers out of a total </span><span class="si">%d</span><span class="s2"> points : </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">X_test_all</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mislabeled_all</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy with outliers: </span><span class="si">%.2f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">accuracy_all</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+
+<span class="c1"># Menampilkan label yang salah pada data dengan outlier</span>
+<span class="n">mislabeled_indices_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">y_test_all</span> <span class="o">!=</span> <span class="n">y_pred_all</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mislabeled points with outliers:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">mislabeled_indices_all</span><span class="p">:</span>
+    <span class="n">true_label</span> <span class="o">=</span> <span class="n">label_encoder</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">y_test_all</span><span class="p">[</span><span class="n">i</span><span class="p">])])[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">predicted_label</span> <span class="o">=</span> <span class="n">label_encoder</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">y_pred_all</span><span class="p">[</span><span class="n">i</span><span class="p">])])[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Index: </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, True Label: </span><span class="si">{</span><span class="n">true_label</span><span class="si">}</span><span class="s2">, Predicted: </span><span class="si">{</span><span class="n">predicted_label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="c1"># Latih dan uji model tanpa outlier</span>
+<span class="n">y_pred_clean</span> <span class="o">=</span> <span class="n">gnb</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_clean</span><span class="p">,</span> <span class="n">y_train_clean</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_clean</span><span class="p">)</span>
+<span class="n">mislabeled_clean</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_test_clean</span> <span class="o">!=</span> <span class="n">y_pred_clean</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">accuracy_clean</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_clean</span><span class="p">,</span> <span class="n">y_pred_clean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of mislabeled points without outliers out of a total </span><span class="si">%d</span><span class="s2"> points : </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">X_test_clean</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mislabeled_clean</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy without outliers: </span><span class="si">%.2f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">accuracy_clean</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+
+<span class="c1"># Menampilkan label yang salah pada data tanpa outlier</span>
+<span class="n">mislabeled_indices_clean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">y_test_clean</span> <span class="o">!=</span> <span class="n">y_pred_clean</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mislabeled points without outliers:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">mislabeled_indices_clean</span><span class="p">:</span>
+    <span class="n">true_label</span> <span class="o">=</span> <span class="n">label_encoder</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">y_test_clean</span><span class="p">[</span><span class="n">i</span><span class="p">])])[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">predicted_label</span> <span class="o">=</span> <span class="n">label_encoder</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">y_pred_clean</span><span class="p">[</span><span class="n">i</span><span class="p">])])[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Index: </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, True Label: </span><span class="si">{</span><span class="n">true_label</span><span class="si">}</span><span class="s2">, Predicted: </span><span class="si">{</span><span class="n">predicted_label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Visualisasi Confusion Matrix</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test_all</span><span class="p">,</span> <span class="n">y_pred_all</span><span class="p">),</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span> <span class="n">xticklabels</span><span class="o">=</span><span class="n">label_encoder</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">label_encoder</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix with Outliers&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Predicted Label&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;True Label&quot;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test_clean</span><span class="p">,</span> <span class="n">y_pred_clean</span><span class="p">),</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span> <span class="n">xticklabels</span><span class="o">=</span><span class="n">label_encoder</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">label_encoder</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix without Outliers&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Predicted Label&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;True Label&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of mislabeled points with outliers out of a total 30 points : 3
+Accuracy with outliers: 90.00%
+Mislabeled points with outliers:
+Index: 4, True Label: Iris-versicolor, Predicted: Iris-virginica
+Index: 15, True Label: Iris-versicolor, Predicted: Iris-virginica
+Index: 21, True Label: Iris-virginica, Predicted: Iris-versicolor
+
+Number of mislabeled points without outliers out of a total 27 points : 4
+Accuracy without outliers: 85.19%
+Mislabeled points without outliers:
+Index: 0, True Label: Iris-virginica, Predicted: Iris-versicolor
+Index: 2, True Label: Iris-virginica, Predicted: Iris-versicolor
+Index: 7, True Label: Iris-virginica, Predicted: Iris-versicolor
+Index: 25, True Label: Iris-virginica, Predicted: Iris-versicolor
+</pre></div>
+</div>
+<img alt="_images/1c6e2aa1a0cffd444e887e2820b24a067c698fbf8ced5a5e44361afa205ab98e.png" src="_images/1c6e2aa1a0cffd444e887e2820b24a067c698fbf8ced5a5e44361afa205ab98e.png" />
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -1690,15 +1782,11 @@ Iris-versicolor       0.56      0.83      0.67         6
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-knn-bisa-digunakan-untuk-deteksi-outlier">1. Mengapa KNN Bisa Digunakan untuk Deteksi Outlier?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-deteksi-outlier-dengan-knn">2. Langkah-Langkah Deteksi Outlier dengan KNN</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-semua-data-dan-grafik">Menampilkan Semua Data dan Grafik</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-perhitungan"><strong>1. Cara Perhitungan</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-kerja-perhitungan"><strong>2. Cara Kerja Perhitungan</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kegunaan-kode"><strong>3. Kegunaan Kode</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memisahkan-outlier-dari-data">Memisahkan Outlier dari data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>1. Cara Perhitungan</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>2. Cara Kerja Perhitungan</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-akurasi-data">Menghitung Akurasi Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data">Visualisasi Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-semua-data-dan-grafik"><strong>Menampilkan Semua Data dan Grafik</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memisahkan-outlier-dari-data"><strong>Memisahkan Outlier dari data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-akurasi-data"><strong>Menghitung Akurasi Data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data"><strong>Visualisasi Data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-naive-bayes-pad-data"><strong>Implementasi Naive Bayes pad Data</strong></a></li>
 </ul>
 </li>
 </ul>

@@ -1,0 +1,1778 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Pra Uas &#8212; Penambangan Data</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'prauas';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Teknik Binning" href="Binning.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/foto.png" class="logo__image only-light" alt="Penambangan Data - Home"/>
+    <script>document.write(`<img src="_static/foto.png" class="logo__image only-dark" alt="Penambangan Data - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Penambangan Data
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Tugas1.html">Tugas 1 Pendata</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Tugas2.html">Penjelasan Outlier Deteksi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="knn.html">Deteksi Outlier dengan K-Nearest Neighbors (KNN) dalam Data Understanding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LOF.html">Deteksi Outlier dengan metode Local Outlier Factor (LOF) dalam Data Understanding</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Uts.html">UTS Pendata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="k-means%20%281%29.html"><strong>Algoritma <em>K-Means</em></strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fuzzy_CMeans.html"><strong>FUZZY C-MEANS</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DecisionnTree.html">Decision Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Binning.html">Teknik Binning</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pra Uas</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fprauas.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/prauas.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pra Uas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengambil-data">Mengambil Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explorasi-data">Explorasi Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-data">Preprocessing Data</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pra-uas">
+<h1>Pra Uas<a class="headerlink" href="#pra-uas" title="Link to this heading">#</a></h1>
+<section id="mengambil-data">
+<h2>Mengambil Data<a class="headerlink" href="#mengambil-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">ucimlrepo</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting ucimlrepo
+  Downloading ucimlrepo-0.0.7-py3-none-any.whl.metadata (5.5 kB)
+Requirement already satisfied: pandas&gt;=1.0.0 in /home/codespace/.local/lib/python3.12/site-packages (from ucimlrepo) (2.2.3)
+Requirement already satisfied: certifi&gt;=2020.12.5 in /home/codespace/.local/lib/python3.12/site-packages (from ucimlrepo) (2024.8.30)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&gt;=1.26.0 in /home/codespace/.local/lib/python3.12/site-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2.2.0)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/codespace/.local/lib/python3.12/site-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in /home/codespace/.local/lib/python3.12/site-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2024.2)
+Requirement already satisfied: tzdata&gt;=2022.7 in /home/codespace/.local/lib/python3.12/site-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2024.2)
+Requirement already satisfied: six&gt;=1.5 in /home/codespace/.local/lib/python3.12/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&gt;=1.0.0-&gt;ucimlrepo) (1.17.0)
+Downloading ucimlrepo-0.0.7-py3-none-any.whl (8.0 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: ucimlrepo
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed ucimlrepo-0.0.7
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">24.3.1</span> -&gt; <span class=" -Color -Color-Green">25.1.1</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python3 -m pip install --upgrade pip</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ucimlrepo</span> <span class="kn">import</span> <span class="n">fetch_ucirepo</span>
+<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">files</span>
+
+<span class="c1"># fetch dataset</span>
+<span class="n">diabetes_130_us_hospitals_for_years_1999_2008</span> <span class="o">=</span> <span class="n">fetch_ucirepo</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">296</span><span class="p">)</span>
+
+<span class="c1"># data (as pandas dataframes)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">diabetes_130_us_hospitals_for_years_1999_2008</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">features</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">diabetes_130_us_hospitals_for_years_1999_2008</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">targets</span>
+
+<span class="c1">## data (as pandas dataframes)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">diabetes_130_us_hospitals_for_years_1999_2008</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">original</span>
+  <span class="c1"># menyimpan hasil komputasi ke dalam csv</span>
+<span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;diabetes_130_us_hospitals_for_years_1999_2008.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">info</span><span class="p">())</span> <span class="c1">#untuk menampilkan info fitur-fitur yang ada di tabel</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span> <span class="c1">#untuk menampilkan 5 baris pertama</span>
+
+<span class="n">files</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;diabetes_130_us_hospitals_for_years_1999_2008.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">ucimlrepo</span> <span class="kn">import</span> <span class="n">fetch_ucirepo</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">files</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># fetch dataset</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">diabetes_130_us_hospitals_for_years_1999_2008</span> <span class="o">=</span> <span class="n">fetch_ucirepo</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">296</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;google&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="explorasi-data">
+<h2>Explorasi Data<a class="headerlink" href="#explorasi-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="c1">#display dataset</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-4bc18d5f-1707-44ba-9607-23773bf7694e" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>encounter_id</th>
+      <th>patient_nbr</th>
+      <th>race</th>
+      <th>gender</th>
+      <th>age</th>
+      <th>weight</th>
+      <th>admission_type_id</th>
+      <th>discharge_disposition_id</th>
+      <th>admission_source_id</th>
+      <th>time_in_hospital</th>
+      <th>...</th>
+      <th>citoglipton</th>
+      <th>insulin</th>
+      <th>glyburide-metformin</th>
+      <th>glipizide-metformin</th>
+      <th>glimepiride-pioglitazone</th>
+      <th>metformin-rosiglitazone</th>
+      <th>metformin-pioglitazone</th>
+      <th>change</th>
+      <th>diabetesMed</th>
+      <th>readmitted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2278392</td>
+      <td>8222157</td>
+      <td>Caucasian</td>
+      <td>Female</td>
+      <td>[0-10)</td>
+      <td>NaN</td>
+      <td>6</td>
+      <td>25</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>149190</td>
+      <td>55629189</td>
+      <td>Caucasian</td>
+      <td>Female</td>
+      <td>[10-20)</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>7</td>
+      <td>3</td>
+      <td>...</td>
+      <td>No</td>
+      <td>Up</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Ch</td>
+      <td>Yes</td>
+      <td>&gt;30</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>64410</td>
+      <td>86047875</td>
+      <td>AfricanAmerican</td>
+      <td>Female</td>
+      <td>[20-30)</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>7</td>
+      <td>2</td>
+      <td>...</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>500364</td>
+      <td>82442376</td>
+      <td>Caucasian</td>
+      <td>Male</td>
+      <td>[30-40)</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>7</td>
+      <td>2</td>
+      <td>...</td>
+      <td>No</td>
+      <td>Up</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Ch</td>
+      <td>Yes</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>16680</td>
+      <td>42519267</td>
+      <td>Caucasian</td>
+      <td>Male</td>
+      <td>[40-50)</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>7</td>
+      <td>1</td>
+      <td>...</td>
+      <td>No</td>
+      <td>Steady</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Ch</td>
+      <td>Yes</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>101761</th>
+      <td>443847548</td>
+      <td>100162476</td>
+      <td>AfricanAmerican</td>
+      <td>Male</td>
+      <td>[70-80)</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>3</td>
+      <td>7</td>
+      <td>3</td>
+      <td>...</td>
+      <td>No</td>
+      <td>Down</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Ch</td>
+      <td>Yes</td>
+      <td>&gt;30</td>
+    </tr>
+    <tr>
+      <th>101762</th>
+      <td>443847782</td>
+      <td>74694222</td>
+      <td>AfricanAmerican</td>
+      <td>Female</td>
+      <td>[80-90)</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>4</td>
+      <td>5</td>
+      <td>5</td>
+      <td>...</td>
+      <td>No</td>
+      <td>Steady</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <th>101763</th>
+      <td>443854148</td>
+      <td>41088789</td>
+      <td>Caucasian</td>
+      <td>Male</td>
+      <td>[70-80)</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>7</td>
+      <td>1</td>
+      <td>...</td>
+      <td>No</td>
+      <td>Down</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Ch</td>
+      <td>Yes</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <th>101764</th>
+      <td>443857166</td>
+      <td>31693671</td>
+      <td>Caucasian</td>
+      <td>Female</td>
+      <td>[80-90)</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>3</td>
+      <td>7</td>
+      <td>10</td>
+      <td>...</td>
+      <td>No</td>
+      <td>Up</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Ch</td>
+      <td>Yes</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <th>101765</th>
+      <td>443867222</td>
+      <td>175429310</td>
+      <td>Caucasian</td>
+      <td>Male</td>
+      <td>[70-80)</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>7</td>
+      <td>6</td>
+      <td>...</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>NO</td>
+    </tr>
+  </tbody>
+</table>
+<p>101766 rows × 50 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-4bc18d5f-1707-44ba-9607-23773bf7694e')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-4bc18d5f-1707-44ba-9607-23773bf7694e button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-4bc18d5f-1707-44ba-9607-23773bf7694e');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-6cbce753-7590-4434-9af2-6d87acbc1167">
+      <button class="colab-df-quickchart" onclick="quickchart('df-6cbce753-7590-4434-9af2-6d87acbc1167')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-6cbce753-7590-4434-9af2-6d87acbc1167 button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+  <div id="id_7209cd74-7aac-44b3-9465-571fd7f2d0fc">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('data')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_7209cd74-7aac-44b3-9465-571fd7f2d0fc button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('data');
+      }
+      })();
+    </script>
+  </div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">shape</span> <span class="c1">#untuk mengetahui bentuk dataset(baris &amp; kolom)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(101766, 50)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">columns</span> <span class="c1">#untuk mengetahui kolom-kolom yang ada pada dataset</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;encounter_id&#39;, &#39;patient_nbr&#39;, &#39;race&#39;, &#39;gender&#39;, &#39;age&#39;, &#39;weight&#39;,
+       &#39;admission_type_id&#39;, &#39;discharge_disposition_id&#39;, &#39;admission_source_id&#39;,
+       &#39;time_in_hospital&#39;, &#39;payer_code&#39;, &#39;medical_specialty&#39;,
+       &#39;num_lab_procedures&#39;, &#39;num_procedures&#39;, &#39;num_medications&#39;,
+       &#39;number_outpatient&#39;, &#39;number_emergency&#39;, &#39;number_inpatient&#39;, &#39;diag_1&#39;,
+       &#39;diag_2&#39;, &#39;diag_3&#39;, &#39;number_diagnoses&#39;, &#39;max_glu_serum&#39;, &#39;A1Cresult&#39;,
+       &#39;metformin&#39;, &#39;repaglinide&#39;, &#39;nateglinide&#39;, &#39;chlorpropamide&#39;,
+       &#39;glimepiride&#39;, &#39;acetohexamide&#39;, &#39;glipizide&#39;, &#39;glyburide&#39;, &#39;tolbutamide&#39;,
+       &#39;pioglitazone&#39;, &#39;rosiglitazone&#39;, &#39;acarbose&#39;, &#39;miglitol&#39;, &#39;troglitazone&#39;,
+       &#39;tolazamide&#39;, &#39;examide&#39;, &#39;citoglipton&#39;, &#39;insulin&#39;,
+       &#39;glyburide-metformin&#39;, &#39;glipizide-metformin&#39;,
+       &#39;glimepiride-pioglitazone&#39;, &#39;metformin-rosiglitazone&#39;,
+       &#39;metformin-pioglitazone&#39;, &#39;change&#39;, &#39;diabetesMed&#39;, &#39;readmitted&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">dtypes</span> <span class="c1">#untuk mengetahui tipe data dari masing-masing kolom</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>encounter_id</th>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>patient_nbr</th>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>race</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>gender</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>age</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>weight</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>admission_type_id</th>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>discharge_disposition_id</th>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>admission_source_id</th>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>time_in_hospital</th>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>payer_code</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>medical_specialty</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>num_lab_procedures</th>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>num_procedures</th>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>num_medications</th>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>number_outpatient</th>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>number_emergency</th>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>number_inpatient</th>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>diag_1</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>diag_2</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>diag_3</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>number_diagnoses</th>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>max_glu_serum</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>A1Cresult</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>metformin</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>repaglinide</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>nateglinide</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>chlorpropamide</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>glimepiride</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>acetohexamide</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>glipizide</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>glyburide</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>tolbutamide</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>pioglitazone</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>rosiglitazone</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>acarbose</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>miglitol</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>troglitazone</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>tolazamide</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>examide</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>citoglipton</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>insulin</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>glyburide-metformin</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>glipizide-metformin</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>glimepiride-pioglitazone</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>metformin-rosiglitazone</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>metformin-pioglitazone</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>change</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>diabetesMed</th>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>readmitted</th>
+      <td>object</td>
+    </tr>
+  </tbody>
+</table>
+</div><br><label><b>dtype:</b> object</label></div></div>
+</div>
+<p>Mencari Missing Value dan Outlier</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Load dataset dari file CSV (kalau sudah disimpan sebelumnya)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;diabetes_130_us_hospitals_for_years_1999_2008.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># 1. Menampilkan informasi umum dataset</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Info DataFrame:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+
+<span class="c1"># 2. Cek jumlah missing values per kolom</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Missing Values per Kolom:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># 3. Presentase missing values</span>
+<span class="n">missing_percent</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Presentase Missing Values:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">missing_percent</span><span class="p">[</span><span class="n">missing_percent</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+<span class="c1"># 4. Cek apakah ada duplikat</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Jumlah Data Duplikat:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># 5. Ringkasan statistik deskriptif untuk fitur numerik</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Statistik Deskriptif:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+
+<span class="c1"># 6. Visualisasi boxplot untuk mendeteksi outlier di fitur numerik</span>
+<span class="n">numeric_cols</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="c1"># Boxplot untuk semua fitur numerik</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">data</span><span class="p">[</span><span class="n">numeric_cols</span><span class="p">]</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">rot</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Boxplot Fitur Numerik (Deteksi Outlier)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># 7. Deteksi outlier menggunakan IQR (contoh untuk satu kolom numerik)</span>
+<span class="k">def</span> <span class="nf">detect_outliers_iqr</span><span class="p">(</span><span class="n">column</span><span class="p">):</span>
+    <span class="n">Q1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+    <span class="n">Q3</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+    <span class="n">IQR</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">-</span> <span class="n">Q1</span>
+    <span class="n">outliers</span> <span class="o">=</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">Q1</span> <span class="o">-</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR</span><span class="p">))</span> <span class="o">|</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">Q3</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR</span><span class="p">))]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Jumlah outlier di kolom &#39;</span><span class="si">{</span><span class="n">column</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">outliers</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Contoh: cek outlier pada fitur &#39;time_in_hospital&#39; (jika ada)</span>
+<span class="k">if</span> <span class="s1">&#39;time_in_hospital&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">detect_outliers_iqr</span><span class="p">(</span><span class="s1">&#39;time_in_hospital&#39;</span><span class="p">)</span>
+
+<span class="c1"># 8. Heatmap korelasi dan missing value</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">isnull</span><span class="p">(),</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Heatmap Missing Values&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Korelasi numerik</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">numeric_cols</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(),</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.2f&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Heatmap Korelasi Fitur Numerik&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipython-input-16-2270431918.py:7: DtypeWarning: Columns (11) have mixed types. Specify dtype option on import or set low_memory=False.
+  data = pd.read_csv(&quot;diabetes_130_us_hospitals_for_years_1999_2008.csv&quot;, index_col=0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Info DataFrame:
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Index: 101766 entries, 0 to 101765
+Data columns (total 50 columns):
+ #   Column                    Non-Null Count   Dtype 
+---  ------                    --------------   ----- 
+ 0   encounter_id              101766 non-null  int64 
+ 1   patient_nbr               101766 non-null  int64 
+ 2   race                      99493 non-null   object
+ 3   gender                    101766 non-null  object
+ 4   age                       101766 non-null  object
+ 5   weight                    3197 non-null    object
+ 6   admission_type_id         101766 non-null  int64 
+ 7   discharge_disposition_id  101766 non-null  int64 
+ 8   admission_source_id       101766 non-null  int64 
+ 9   time_in_hospital          101766 non-null  int64 
+ 10  payer_code                61510 non-null   object
+ 11  medical_specialty         51817 non-null   object
+ 12  num_lab_procedures        101766 non-null  int64 
+ 13  num_procedures            101766 non-null  int64 
+ 14  num_medications           101766 non-null  int64 
+ 15  number_outpatient         101766 non-null  int64 
+ 16  number_emergency          101766 non-null  int64 
+ 17  number_inpatient          101766 non-null  int64 
+ 18  diag_1                    101745 non-null  object
+ 19  diag_2                    101408 non-null  object
+ 20  diag_3                    100343 non-null  object
+ 21  number_diagnoses          101766 non-null  int64 
+ 22  max_glu_serum             5346 non-null    object
+ 23  A1Cresult                 17018 non-null   object
+ 24  metformin                 101766 non-null  object
+ 25  repaglinide               101766 non-null  object
+ 26  nateglinide               101766 non-null  object
+ 27  chlorpropamide            101766 non-null  object
+ 28  glimepiride               101766 non-null  object
+ 29  acetohexamide             101766 non-null  object
+ 30  glipizide                 101766 non-null  object
+ 31  glyburide                 101766 non-null  object
+ 32  tolbutamide               101766 non-null  object
+ 33  pioglitazone              101766 non-null  object
+ 34  rosiglitazone             101766 non-null  object
+ 35  acarbose                  101766 non-null  object
+ 36  miglitol                  101766 non-null  object
+ 37  troglitazone              101766 non-null  object
+ 38  tolazamide                101766 non-null  object
+ 39  examide                   101766 non-null  object
+ 40  citoglipton               101766 non-null  object
+ 41  insulin                   101766 non-null  object
+ 42  glyburide-metformin       101766 non-null  object
+ 43  glipizide-metformin       101766 non-null  object
+ 44  glimepiride-pioglitazone  101766 non-null  object
+ 45  metformin-rosiglitazone   101766 non-null  object
+ 46  metformin-pioglitazone    101766 non-null  object
+ 47  change                    101766 non-null  object
+ 48  diabetesMed               101766 non-null  object
+ 49  readmitted                101766 non-null  object
+dtypes: int64(13), object(37)
+memory usage: 39.6+ MB
+None
+
+Missing Values per Kolom:
+encounter_id                    0
+patient_nbr                     0
+race                         2273
+gender                          0
+age                             0
+weight                      98569
+admission_type_id               0
+discharge_disposition_id        0
+admission_source_id             0
+time_in_hospital                0
+payer_code                  40256
+medical_specialty           49949
+num_lab_procedures              0
+num_procedures                  0
+num_medications                 0
+number_outpatient               0
+number_emergency                0
+number_inpatient                0
+diag_1                         21
+diag_2                        358
+diag_3                       1423
+number_diagnoses                0
+max_glu_serum               96420
+A1Cresult                   84748
+metformin                       0
+repaglinide                     0
+nateglinide                     0
+chlorpropamide                  0
+glimepiride                     0
+acetohexamide                   0
+glipizide                       0
+glyburide                       0
+tolbutamide                     0
+pioglitazone                    0
+rosiglitazone                   0
+acarbose                        0
+miglitol                        0
+troglitazone                    0
+tolazamide                      0
+examide                         0
+citoglipton                     0
+insulin                         0
+glyburide-metformin             0
+glipizide-metformin             0
+glimepiride-pioglitazone        0
+metformin-rosiglitazone         0
+metformin-pioglitazone          0
+change                          0
+diabetesMed                     0
+readmitted                      0
+dtype: int64
+
+Presentase Missing Values:
+weight               96.858479
+max_glu_serum        94.746772
+A1Cresult            83.277322
+medical_specialty    49.082208
+payer_code           39.557416
+race                  2.233555
+diag_3                1.398306
+diag_2                0.351787
+diag_1                0.020636
+dtype: float64
+
+Jumlah Data Duplikat:
+0
+
+Statistik Deskriptif:
+       encounter_id   patient_nbr  admission_type_id  \
+count  1.017660e+05  1.017660e+05      101766.000000   
+mean   1.652016e+08  5.433040e+07           2.024006   
+std    1.026403e+08  3.869636e+07           1.445403   
+min    1.252200e+04  1.350000e+02           1.000000   
+25%    8.496119e+07  2.341322e+07           1.000000   
+50%    1.523890e+08  4.550514e+07           1.000000   
+75%    2.302709e+08  8.754595e+07           3.000000   
+max    4.438672e+08  1.895026e+08           8.000000   
+
+       discharge_disposition_id  admission_source_id  time_in_hospital  \
+count             101766.000000        101766.000000     101766.000000   
+mean                   3.715642             5.754437          4.395987   
+std                    5.280166             4.064081          2.985108   
+min                    1.000000             1.000000          1.000000   
+25%                    1.000000             1.000000          2.000000   
+50%                    1.000000             7.000000          4.000000   
+75%                    4.000000             7.000000          6.000000   
+max                   28.000000            25.000000         14.000000   
+
+       num_lab_procedures  num_procedures  num_medications  number_outpatient  \
+count       101766.000000   101766.000000    101766.000000      101766.000000   
+mean            43.095641        1.339730        16.021844           0.369357   
+std             19.674362        1.705807         8.127566           1.267265   
+min              1.000000        0.000000         1.000000           0.000000   
+25%             31.000000        0.000000        10.000000           0.000000   
+50%             44.000000        1.000000        15.000000           0.000000   
+75%             57.000000        2.000000        20.000000           0.000000   
+max            132.000000        6.000000        81.000000          42.000000   
+
+       number_emergency  number_inpatient  number_diagnoses  
+count     101766.000000     101766.000000     101766.000000  
+mean           0.197836          0.635566          7.422607  
+std            0.930472          1.262863          1.933600  
+min            0.000000          0.000000          1.000000  
+25%            0.000000          0.000000          6.000000  
+50%            0.000000          0.000000          8.000000  
+75%            0.000000          1.000000          9.000000  
+max           76.000000         21.000000         16.000000  
+</pre></div>
+</div>
+<img alt="_images/cc8da97f749dce32e863859b9ded2a90966f4f00989beb7a5972c7e499e88eb7.png" src="_images/cc8da97f749dce32e863859b9ded2a90966f4f00989beb7a5972c7e499e88eb7.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah outlier di kolom &#39;time_in_hospital&#39;: 2252
+</pre></div>
+</div>
+<img alt="_images/4230b654400eb17439ca9c1b80246cf0972923a778ca8b08fc0499cb3c8398c8.png" src="_images/4230b654400eb17439ca9c1b80246cf0972923a778ca8b08fc0499cb3c8398c8.png" />
+<img alt="_images/5b542189ed94d7e51aece5e9f1d56915cd4cfda5016f7222b5bf2e87be8bb999.png" src="_images/5b542189ed94d7e51aece5e9f1d56915cd4cfda5016f7222b5bf2e87be8bb999.png" />
+</div>
+</div>
+<p>Visualisasi Data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Ambil hanya kolom numerik</span>
+<span class="n">numeric_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">numeric_data</span><span class="o">.</span><span class="n">corr</span><span class="p">(),</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.2f&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Heatmap Korelasi antar Fitur Numerik&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ba1942816dcf0b5d5c92fc1edd09cbaa9305ae0ffcd922b38bc406d944c810b4.png" src="_images/ba1942816dcf0b5d5c92fc1edd09cbaa9305ae0ffcd922b38bc406d944c810b4.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;readmitted&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribusi Label Readmitted&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Readmitted&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Jumlah&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipython-input-28-3872530656.py:2: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.countplot(x=&#39;readmitted&#39;, data=data, palette=&#39;viridis&#39;)
+</pre></div>
+</div>
+<img alt="_images/560772b067b4f135861736acb220455dc88aa08ab5154f3cf121e620dad47782.png" src="_images/560772b067b4f135861736acb220455dc88aa08ab5154f3cf121e620dad47782.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;readmitted&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;time_in_hospital&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribusi Lama Dirawat per Kategori Readmitted&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Readmitted&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Time in Hospital&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d9c051d1b39c0bde72c6a70ed3aefc12c74775470fc77d317ae419adea3f7040.png" src="_images/d9c051d1b39c0bde72c6a70ed3aefc12c74775470fc77d317ae419adea3f7040.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Distribusi Fitur Numerik&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/74787eb78999f4b39850cb8c2ed528c804956fdc3906173d70c09c280c07c114.png" src="_images/74787eb78999f4b39850cb8c2ed528c804956fdc3906173d70c09c280c07c114.png" />
+</div>
+</div>
+</section>
+<section id="preprocessing-data">
+<h2>Preprocessing Data<a class="headerlink" href="#preprocessing-data" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Binning.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Teknik Binning</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengambil-data">Mengambil Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explorasi-data">Explorasi Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-data">Preprocessing Data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Muhammad Umar Faruq - 008
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
